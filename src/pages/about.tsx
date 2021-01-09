@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-
-import HeaderBar from "../components/headerBar"
 import styled from "styled-components"
+
+import WelcomeView from "../components/WelcomeView"
 
 const About = () => {
 	return (
@@ -13,17 +13,17 @@ const About = () => {
 						site {
 							siteMetadata {
 								title
-								description
 							}
 						}
 					}
 				`}
 				render={(data) => (
 					<>
-						<HeaderBar title={data.site.siteMetadata.title} />
-						<AboutContainer>
-							<h2>{data.site.siteMetadata.description}</h2>
-						</AboutContainer>
+						<WelcomeView />
+						{/* <Navbar title={data.site.siteMetadata.title} /> */}
+						<AboutContent>
+							<h2>Some text</h2>
+						</AboutContent>
 					</>
 				)}
 			/>
@@ -31,7 +31,8 @@ const About = () => {
 	)
 }
 
-const AboutContainer = styled.div`
+const AboutContent = styled.div`
+	height: 100vh;
 	margin-left: 15rem;
 	margin-right: 15rem;
 	text-align: center;
