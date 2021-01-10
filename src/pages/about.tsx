@@ -1,42 +1,29 @@
 import React, { useRef } from "react"
 import styled from "styled-components"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons"
-import background from "../images/pexels-josh-sorenson-1714208.jpg"
+
+import WelcomeBox from "../components/WelcomeBox"
+import AboutBox from "../components/AboutBox"
 
 const About = () => {
 	const ref = useRef<Parallax>()
 	return (
 		<Parallax pages={2} scrolling={true} ref={ref}>
-			<ParallaxLayer offset={0} speed={-1} factor={1}>
-				<WelcomeView />
+			<ParallaxLayer offset={0.3} speed={0.5}>
+				<WelcomeBox />
 			</ParallaxLayer>
-			<ParallaxLayer offset={0.5} speed={0.5} factor={1}>
-				<span>TETASFASF</span>
+			<ParallaxLayer offset={1} speed={0}>
+				<AboutBackground />
 			</ParallaxLayer>
-			<ParallaxLayer offset={1} speed={0} factor={1}>
-				<WelcomeView />
+			<ParallaxLayer offset={1.2} speed={0.3}>
+				<AboutBox />
 			</ParallaxLayer>
 		</Parallax>
 	)
 }
 
-const AboutContent = styled.section`
+const AboutBackground = styled.section`
 	height: 100vh;
-	margin-left: 15rem;
-	margin-right: 15rem;
-	text-align: center;
+	background-color: rgb(60, 110, 113, 0.9);
 `
-const WelcomeView = styled.section`
-	background-image: url(${background});
-	background-size: 100% 100vh;
-	height: 100vh;
-	width: 100%;
-`
-
-const Test2 = styled.div`
-	background-size: 100% 100vh;
-	height: 100vh;
-	width: 100%;
-`
-
 export default About

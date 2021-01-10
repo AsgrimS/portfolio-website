@@ -3,10 +3,11 @@ import { createGlobalStyle } from "styled-components"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
 
+import backgroundImage from "../images/background.jpg"
+
 import favicon from "../images/curriculum-vitae.png"
 import OpenSansRegular from "../fonts/OpenSans-Regular.ttf"
 import OpenSansBold from "../fonts/OpenSans-SemiBold.ttf"
-
 interface dataInterface {
 	site: siteInterface
 }
@@ -58,9 +59,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
 		margin: 0;
-    background-color: #3c6e71;
-		color:#d9d9d9;
+		color:#353535;
 		font-family:"Open Sans";
+
+	background-image: url(${backgroundImage});
+	background-size: 100% 100vh;
+	/* background-color: #3c6e71; */
   }
 `
 
