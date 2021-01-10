@@ -7,7 +7,19 @@ import favicon from "../images/curriculum-vitae.png"
 import OpenSansRegular from "../fonts/OpenSans-Regular.ttf"
 import OpenSansBold from "../fonts/OpenSans-SemiBold.ttf"
 
-const Layout = ({ children }) => {
+interface dataInterface {
+	site: siteInterface
+}
+
+interface siteInterface {
+	siteMetadata: siteMetadataInterface
+}
+
+interface siteMetadataInterface {
+	title: string
+}
+
+const Layout: React.FC = ({ children }) => {
 	return (
 		<StaticQuery
 			query={graphql`
@@ -19,7 +31,7 @@ const Layout = ({ children }) => {
 					}
 				}
 			`}
-			render={(data) => (
+			render={(data: dataInterface) => (
 				<>
 					<Helmet>
 						<title>{data.site.siteMetadata.title}</title>
@@ -46,8 +58,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
 		margin: 0;
-    background-color: #d9d9d9;
-		color: #353535;
+    background-color: #3c6e71;
+		color:#d9d9d9;
 		font-family:"Open Sans";
   }
 `
